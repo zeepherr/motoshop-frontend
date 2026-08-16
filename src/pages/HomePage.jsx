@@ -1,12 +1,5 @@
-import { ThemeSwitcher } from "../components/theme/ThemeToggle";
-
 function HomePage() {
-  return (
-    <div>
-      HomePage
-      <ThemeSwitcher />
-    </div>
-  );
+  return <div>HomePage is under maintainance</div>;
 }
 
 export default HomePage;

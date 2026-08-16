@@ -7,7 +7,7 @@ const useUiStore = create((set, get) => ({
       pendingRequests: get().pendingRequests + 1,
     });
   },
-  finisheRequest: () => {
+  finishRequest: () => {
     set({
       pendingRequests: Math.max(0, get().pendingRequests - 1), // don't let than 0
     });

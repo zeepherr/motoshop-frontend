@@ -1,4 +1,4 @@
-const savedTheme = localStorage.getItem("motor-shop-theme") || "system";
+const savedTheme = localStorage.getItem("motor-theme") || "system";
 
 const isDark =
   savedTheme === "dark" ||

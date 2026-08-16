@@ -1,15 +1,10 @@
-import { Outlet } from "react-router";
-
-function MemberLayout() {
+export function MemberLayout() {
   return (
-    <div>
-      <aside>Member Navigation</aside>
-
-      <main>
-        <Outlet />
-      </main>
-    </div>
+    <AppShell
+      navigation={memberNavigation}
+      section="Member"
+      workspace="Motorcycle care"
+      user={memberUser}
+    />
   );
 }
-
-export default MemberLayout;

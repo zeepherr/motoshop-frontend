@@ -7,7 +7,9 @@
 
 @theme inline {
   --font-heading: var(--font-sans);
-  --font-sans: "Inter Variable", "Noto Sans Myanmar", system-ui, sans-serif;
+  --font-sans:
+    -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+    "Segoe UI", system-ui, sans-serif;
 
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -60,10 +62,7 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-/* =========================================================
-   LIGHT THEME
-   ========================================================= */
-
+/* light  */
 :root {
   /* Canvas */
   --background: #f8f9fc;
@@ -107,59 +106,34 @@
   /* Focus Ring */
   --ring: #5b5fef;
 
-  /* =====================================================
-     Analytics
-     ===================================================== */
-
   /* Primary Purple */
   --chart-1: #5b5fef;
-
   /* Blue Accent */
   --chart-2: #3b82f6;
-
   /* Success */
   --chart-3: #15803d;
-
   /* Secondary Purple */
   --chart-4: #7357e8;
-
   /* Warning */
   --chart-5: #b45309;
 
-  /* =====================================================
-     Radius
-     ===================================================== */
-
   --radius: 0.625rem;
-
-  /* =====================================================
-     Sidebar
-     ===================================================== */
 
   /* Sidebar Surface */
   --sidebar: #ffffff;
-
   /* Sidebar Text */
   --sidebar-foreground: #111827;
-
   /* Sidebar Primary */
   --sidebar-primary: #5b5fef;
   --sidebar-primary-foreground: #ffffff;
-
   /* Sidebar Accent */
   --sidebar-accent: #f1f5f9;
   --sidebar-accent-foreground: #111827;
-
   /* Sidebar Border */
   --sidebar-border: #e2e8f0;
-
   /* Sidebar Focus Ring */
   --sidebar-ring: #5b5fef;
 }
-
-/* =========================================================
-   DARK THEME
-   ========================================================= */
 
 .dark {
   /* Canvas */
@@ -263,5 +237,10 @@
 
   html {
     @apply font-sans;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  body {
+    transition: background-color 5000ms ease;
   }
 }

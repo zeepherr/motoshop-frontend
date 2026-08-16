@@ -1,16 +1,11 @@
-import { Outlet } from "react-router";
-
-function StaffLayout() {
+import { AppShell } from "./AppShell";
+export function StaffLayout() {
   return (
-    <div>
-      <aside>Staff Sidebar</aside>
-
-      <main>
-        <header>Staff Header</header>
-        <Outlet />
-      </main>
-    </div>
+    <AppShell
+      navigation={staffNavigation}
+      section="Staff"
+      workspace="Staff workspace"
+      user={staffUser}
+    />
   );
 }
-
-export default StaffLayout;
