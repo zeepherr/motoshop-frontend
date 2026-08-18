@@ -1,0 +1,32 @@
+.top-loader-bar {
+  width: 35%;
+  border-radius: 9999px;
+
+  box-shadow:
+    0 0 8px color-mix(in srgb, var(--primary) 55%, transparent),
+    0 0 3px color-mix(in srgb, var(--primary) 70%, transparent);
+
+  animation: top-loader 1.15s ease-in-out infinite;
+}
+
+@keyframes top-loader {
+  0% {
+    transform: translateX(-120%);
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(330%);
+    opacity: 0.4;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .top-loader-bar {
+    animation-duration: 2.5s;
+  }
+}

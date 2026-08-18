@@ -1,0 +1,130 @@
+/* -----------------------------
+   Motorcycle
+------------------------------ */
+
+.motor-loader {
+  position: relative;
+}
+
+.motor-base,
+.motor-highlight {
+  fill: none;
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.motor-base {
+  stroke: var(--muted-foreground);
+  opacity: 0.22;
+}
+
+.motor-highlight {
+  stroke: var(--primary);
+
+  stroke-dasharray: 35 200;
+  stroke-dashoffset: 100;
+
+  animation: motor-sweep 1.5s ease-in-out infinite;
+}
+
+@keyframes motor-sweep {
+  0% {
+    stroke-dashoffset: 120;
+    opacity: 0.2;
+  }
+
+  45% {
+    opacity: 1;
+  }
+
+  100% {
+    stroke-dashoffset: -120;
+    opacity: 0.2;
+  }
+}
+
+/* -----------------------------
+   Dot typing
+------------------------------ */
+
+.dot-typing {
+  position: relative;
+
+  width: 10px;
+  height: 10px;
+
+  border-radius: 50%;
+
+  background-color: var(--primary);
+  color: var(--primary);
+
+  animation: dot-typing 1.4s infinite linear;
+}
+
+.dot-typing::before,
+.dot-typing::after {
+  content: "";
+
+  position: absolute;
+  top: 0;
+
+  width: 10px;
+  height: 10px;
+
+  border-radius: 50%;
+
+  background-color: var(--primary);
+}
+
+.dot-typing::before {
+  left: -12px;
+  animation: dot-before 1.4s infinite linear;
+}
+
+.dot-typing::after {
+  left: 12px;
+  animation: dot-after 1.4s infinite linear;
+}
+
+@keyframes dot-before {
+  0%,
+  60%,
+  100% {
+    opacity: 0.25;
+    transform: translateY(0);
+  }
+
+  30% {
+    opacity: 1;
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes dot-typing {
+  0%,
+  30%,
+  100% {
+    opacity: 0.25;
+    transform: translateY(0);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes dot-after {
+  0%,
+  60%,
+  100% {
+    opacity: 0.25;
+    transform: translateY(0);
+  }
+
+  90% {
+    opacity: 1;
+    transform: translateY(-4px);
+  }
+}

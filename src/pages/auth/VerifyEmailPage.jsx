@@ -57,10 +57,6 @@ export default function VerifyEmailPage() {
         <CardDescription className="text-lg text-chart">
           sent to : <span className="text-chart-3">{pending.email}</span>
         </CardDescription>
-
-        {/* <CardDescription>
-          Register as a member to manage your motorcycles and order history.
-        </CardDescription> */}
       </CardHeader>
       <CardContent>
         <VerifyEmailForm

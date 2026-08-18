@@ -1,14 +1,9 @@
 import {
   Bike,
-  Boxes,
-  ChartNoAxesCombined,
-  CircleUserRound,
   LayoutDashboard,
   Package,
-  Settings,
   ShoppingCart,
   Tags,
-  Users,
   Wrench,
 } from "lucide-react";
 
@@ -24,11 +19,11 @@ export const adminNavigation = [
     to: "/admin/pos",
     icon: ShoppingCart,
   },
-  {
-    label: "Daily Sales",
-    to: "/admin/daily-sales",
-    icon: ChartNoAxesCombined,
-  },
+  // {
+  //   label: "Daily Sales",
+  //   to: "/admin/daily-sales",
+  //   icon: ChartNoAxesCombined,
+  // },
   {
     label: "Products",
     to: "/admin/products",
@@ -39,11 +34,11 @@ export const adminNavigation = [
     to: "/admin/categories",
     icon: Tags,
   },
-  {
-    label: "Inventory",
-    to: "/admin/inventory",
-    icon: Boxes,
-  },
+  // {
+  //   label: "Inventory",
+  //   to: "/admin/inventory",
+  //   icon: Boxes,
+  // },
   {
     label: "Motor Brands",
     to: "/admin/motor-brands",
@@ -51,7 +46,7 @@ export const adminNavigation = [
   },
   {
     label: "Motorcycles",
-    to: "/admin/motorcycles",
+    to: "/admin/motors",
     icon: Bike,
   },
   {
@@ -59,24 +54,24 @@ export const adminNavigation = [
     to: "/admin/services",
     icon: Wrench,
   },
-  {
-    label: "Members / Users",
-    to: "/admin/users",
-    icon: Users,
-  },
-  {
-    label: "Reports",
-    to: "/admin/reports",
-    icon: ChartNoAxesCombined,
-  },
-  {
-    label: "Profile",
-    to: "/admin/profile",
-    icon: CircleUserRound,
-  },
-  {
-    label: "Settings",
-    to: "/admin/settings",
-    icon: Settings,
-  },
+  // {
+  //   label: "Members / Users",
+  //   to: "/admin/users",
+  //   icon: Users,
+  // },
+  // {
+  //   label: "Reports",
+  //   to: "/admin/reports",
+  //   icon: ChartNoAxesCombined,
+  // },
+  // {
+  //   label: "Profile",
+  //   to: "/admin/profile",
+  //   icon: CircleUserRound,
+  // },
+  // {
+  //   label: "Settings",
+  //   to: "/admin/settings",
+  //   icon: Settings,
+  // },
 ];

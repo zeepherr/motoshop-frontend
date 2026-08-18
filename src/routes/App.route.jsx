@@ -2,7 +2,13 @@ import NotFoundPage from "@/components/NotFound";
 import { ROLES } from "@/constants/role";
 import { AdminLayout } from "@/layouts/AdminLayout";
 import AuthLayout from "@/layouts/AuthLayout";
+import CategoryPage from "@/pages/admin/CategoryPage";
 import DashboardPage from "@/pages/admin/DashboardPage";
+import MotorBrandPage from "@/pages/admin/MotorBrandPage";
+import MotorPages from "@/pages/admin/MotorPages";
+import PosPage from "@/pages/admin/PosPage";
+import ProductPage from "@/pages/admin/ProductPage";
+import ServicePage from "@/pages/admin/ServicePage";
 import { createBrowserRouter } from "react-router";
 import LoginPage from "../pages/auth/LoginPage";
 import RegisterPage from "../pages/auth/RegisterPage";
@@ -43,28 +49,32 @@ const router = createBrowserRouter([
             children: [
               {
                 index: true,
-                element: <DashboardPage />,
+                Component: DashboardPage,
               },
-              // {
-              //   path: "pos",
-              //   element: <PosPage />,
-              // },
-              // {
-              //   path: "daily-sales",
-              //   element: <DailySalesPage />,
-              // },
-              // {
-              //   path: "products",
-              //   element: <ProductsPage />,
-              // },
-              // {
-              //   path: "categories",
-              //   element: <CategoriesPage />,
-              // },
-              // {
-              //   path: "inventory",
-              //   element: <InventoryPage />,
-              // },
+              {
+                path: "pos",
+                Component: PosPage,
+              },
+              {
+                path: "categories",
+                Component: CategoryPage,
+              },
+              {
+                path: "products",
+                Component: ProductPage,
+              },
+              {
+                path: "motor-brands",
+                Component: MotorBrandPage,
+              },
+              {
+                path: "motors",
+                Component: MotorPages,
+              },
+              {
+                path: "services",
+                Component: ServicePage,
+              },
             ],
           },
         ],

@@ -11,6 +11,7 @@ import { Link, useNavigate } from "react-router";
 import { login } from "@/api/auth/auth.api";
 import { establishSession } from "@/api/auth/auth.session";
 import { FormField } from "@/components/auth/FormField";
+import { ContentLoader } from "@/components/loading/ContentLoader";
 import { Input } from "@/components/ui/input";
 import { getRoleHome } from "@/constants/role";
 import { getApiError } from "@/utils/api.error";
@@ -47,78 +48,85 @@ export default function LoginPage() {
     }
   };
   return (
-    <Card className="w-full max-w-sm">
-      <CardHeader>
-        <div className="mb-3 flex items-center gap-2">
-          <div className="flex size-8 items-center justify-center rounded-lg bg-primary text-xs font-semibold text-primary-foreground">
-            H
+    <>
+      <Card className="w-full max-w-sm">
+        <CardHeader>
+          <div className="mb-3 flex items-center gap-2">
+            <div className="flex size-8 items-center justify-center rounded-lg bg-primary text-xs font-semibold text-primary-foreground">
+              H
+            </div>
+
+            <span className="text-xs font-medium">HrungMoto</span>
           </div>
 
-          <span className="text-xs font-medium">HrungMoto</span>
-        </div>
+          <CardTitle className="text-2xl">Welcome back</CardTitle>
 
-        <CardTitle className="text-2xl">Welcome back</CardTitle>
+          <CardDescription>
+            Sign in to continue to your account.
+          </CardDescription>
+        </CardHeader>
 
-        <CardDescription>Sign in to continue to your account.</CardDescription>
-      </CardHeader>
-
-      <CardContent>
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          className="space-y-4"
-          noValidate
-        >
-          <FormField id="email" label="Email" error={errors.email?.message}>
-            <Input
-              id="email"
-              type="email"
-              autoComplete="email"
-              placeholder="name@example.com"
-              aria-invalid={Boolean(errors.email)}
-              aria-describedby={errors.email ? "email-error" : undefined}
-              {...register("email")}
-            />
-          </FormField>
-
-          <FormField
-            id="password"
-            label="Password"
-            error={errors.password?.message}
+        <CardContent>
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="space-y-4"
+            noValidate
           >
-            <Input
+            <FormField id="email" label="Email" error={errors.email?.message}>
+              <Input
+                id="email"
+                type="email"
+                autoComplete="email"
+                placeholder="name@example.com"
+                aria-invalid={Boolean(errors.email)}
+                aria-describedby={errors.email ? "email-error" : undefined}
+                {...register("email")}
+              />
+            </FormField>
+
+            <FormField
               id="password"
-              type="password"
-              autoComplete="current-password"
-              placeholder="Enter your password"
-              aria-invalid={Boolean(errors.password)}
-              aria-describedby={errors.password ? "password-error" : undefined}
-              {...register("password")}
-            />
-          </FormField>
-          {serverError && (
-            <div
-              role="alert"
-              className="rounded-lg border border-destructive/30 bg-destructive/10 p-3 text-sm text-destructive"
+              label="Password"
+              error={errors.password?.message}
             >
-              {serverError}
-            </div>
-          )}
+              <Input
+                id="password"
+                type="password"
+                autoComplete="current-password"
+                placeholder="Enter your password"
+                aria-invalid={Boolean(errors.password)}
+                aria-describedby={
+                  errors.password ? "password-error" : undefined
+                }
+                {...register("password")}
+              />
+            </FormField>
+            {serverError && (
+              <div
+                role="alert"
+                className="rounded-lg border border-destructive/30 bg-destructive/10 p-3 text-sm text-destructive"
+              >
+                {serverError}
+              </div>
+            )}
 
-          <Button type="submit" className="w-full cursor-pointer">
-            {isSubmitting ? "Loging in..." : "Login"}
-          </Button>
+            <Button type="submit" className="w-full cursor-pointer">
+              {isSubmitting ? "Loging in..." : "Login"}
+            </Button>
 
-          <p className="text-center text-sm text-muted-foreground">
-            Don&apos;t have an account?{" "}
-            <Link
-              to="/register"
-              className="font-medium text-primary hover:underline"
-            >
-              Create account
-            </Link>
-          </p>
-        </form>
-      </CardContent>
-    </Card>
+            <p className="text-center text-sm text-muted-foreground">
+              Don&apos;t have an account?{" "}
+              <Link
+                to="/register"
+                className="font-medium text-primary hover:underline"
+              >
+                Create account
+              </Link>
+            </p>
+          </form>
+        </CardContent>
+      </Card>
+      {isSubmitting && <ContentLoader />}
+    </>
   );
 }
