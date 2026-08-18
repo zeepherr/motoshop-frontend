@@ -15,13 +15,7 @@ const findActiveNavigationItem = (pathname, navigation) => {
     );
   });
 };
-export function AppShell({
-  navigation,
-  section,
-  workspace,
-  user,
-  headerActions,
-}) {
+export function AppShell({ navigation, section, workspace, user }) {
   const location = useLocation();
   const activeItem =
     findActiveNavigationItem(location.pathname, navigation) ?? navigation[0];
@@ -39,17 +33,11 @@ export function AppShell({
   };
   return (
     <div
-      className={`
-        grid h-dvh overflow-hidden
-        bg-background text-foreground
-        transition-[grid-template-columns] duration-300 ease-in-out
-
-        ${
-          collapsed
-            ? "grid-cols-[72px_minmax(0,1fr)]"
-            : "grid-cols-[260px_minmax(0,1fr)]"
-        }
-      `}
+      className="grid h-dvh
+    grid-cols-[72px_minmax(0,1fr)]
+    overflow-hidden
+    bg-background
+    text-foreground"
     >
       {/* Left */}
       <AppSidebar

@@ -43,30 +43,34 @@ export default function VerifyEmailPage() {
   }
 
   return (
-    <Card className="w-full max-w-md hover:border-ring">
-      <CardHeader>
-        <div className="mb-3 flex items-center gap-2">
-          <div className="flex size-8 items-center justify-center rounded-lg bg-primary text-xs font-semibold text-primary-foreground">
-            H
+    <>
+      <Card className="w-full max-w-md hover:border-ring">
+        <CardHeader>
+          <div className="mb-3 flex items-center gap-2">
+            <div className="flex size-8 items-center justify-center rounded-lg bg-primary text-xs font-semibold text-primary-foreground">
+              H
+            </div>
+
+            <span className="text-xs font-medium">HrungMoto</span>
           </div>
 
-          <span className="text-xs font-medium">HrungMoto</span>
-        </div>
-
-        <CardTitle className="text-3xl font-bold">Verify your email</CardTitle>
-        <CardDescription className="text-lg text-chart">
-          sent to : <span className="text-chart-3">{pending.email}</span>
-        </CardDescription>
-      </CardHeader>
-      <CardContent>
-        <VerifyEmailForm
-          expiresAt={pending.expiresAt}
-          email={pending.email}
-          resendAvailableAt={pending.resendAvailableAt}
-          onVerified={handleVerified}
-          onAttemptsExceeded={handleAttemptsExceeded}
-        />
-      </CardContent>
-    </Card>
+          <CardTitle className="text-3xl font-bold">
+            Verify your email
+          </CardTitle>
+          <CardDescription className="text-lg text-chart">
+            sent to : <span className="text-chart-3">{pending.email}</span>
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <VerifyEmailForm
+            expiresAt={pending.expiresAt}
+            email={pending.email}
+            resendAvailableAt={pending.resendAvailableAt}
+            onVerified={handleVerified}
+            onAttemptsExceeded={handleAttemptsExceeded}
+          />
+        </CardContent>
+      </Card>
+    </>
   );
 }

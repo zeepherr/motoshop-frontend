@@ -93,7 +93,7 @@ export function AppHeader({
       {/* Left current-page control */}
       <div
         className="
-          absolute left-10 top-3 z-40
+          absolute left-10 top-3 z-30
           flex h-12 items-center gap-3
           rounded-xl
           bg-muted/80

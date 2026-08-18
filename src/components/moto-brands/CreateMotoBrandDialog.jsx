@@ -1,5 +1,3 @@
-// components/moto-brands/CreateMotoBrandDialog.jsx
-
 import {
   Dialog,
   DialogContent,

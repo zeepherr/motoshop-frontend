@@ -9,6 +9,7 @@ import { getApiError } from "@/utils/api.error";
 import { verifyEmailSchema } from "@/validations/auth.schema";
 import { useNavigate } from "react-router";
 import { toast } from "sonner";
+import { ContentLoader } from "../loading/ContentLoader";
 import { AttemptsExceededDialog } from "./AttemptsExceededDialog";
 import { FormField } from "./FormField";
 import { OtpCountdown } from "./OtpCountdown";
@@ -191,6 +192,7 @@ export function VerifyEmailForm({
           navigate("/register");
         }}
       />
+      {isSubmitting && <ContentLoader />}
     </>
   );
 }
