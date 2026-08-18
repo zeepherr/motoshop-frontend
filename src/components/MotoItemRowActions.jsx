@@ -17,8 +17,9 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-export function MotoBrandRowActions({
-  brand,
+export function MotoItemRowActions({
+  tableName,
+  item,
   onEdit,
   onStatusChange,
   onDelete,
@@ -31,7 +32,7 @@ export function MotoBrandRowActions({
             variant="ghost"
             size="icon"
             className="size-8"
-            aria-label={`Actions for ${brand.name}`}
+            aria-label={`Actions for ${item.name}`}
           />
         }
       >
@@ -45,48 +46,48 @@ export function MotoBrandRowActions({
 
             <span
               className={`flex items-center gap-1.5 text-xs font-medium ${
-                brand.isActive
+                item.isActive
                   ? "text-emerald-600 dark:text-emerald-400"
                   : "text-muted-foreground"
               }`}
             >
               <span
                 className={`size-2 rounded-full ${
-                  brand.isActive
+                  item.isActive
                     ? "bg-emerald-500 animate-ping opacity-75 inline-flex"
                     : "bg-muted-foreground"
                 }`}
               />
 
-              {brand.isActive ? "Active" : "Inactive"}
+              {item.isActive ? "Active" : "Inactive"}
             </span>
           </DropdownMenuLabel>
         </DropdownMenuGroup>
 
         <DropdownMenuSeparator />
 
-        <DropdownMenuItem onClick={() => onEdit(brand)}>
+        <DropdownMenuItem onClick={() => onEdit(item)}>
           <Pencil className="size-4" />
-          Edit Brand
+          Edit {tableName}
         </DropdownMenuItem>
 
         <DropdownMenuItem
-          onClick={() => onStatusChange(brand)}
+          onClick={() => onStatusChange(item)}
           className={
-            brand.isActive
+            item.isActive
               ? "text-destructive focus:text-destructive"
               : "text-emerald-600 focus:text-emerald-600 dark:text-emerald-400"
           }
         >
-          {brand.isActive ? (
+          {item.isActive ? (
             <>
               <CircleOff className="size-4" />
-              Deactivate Brand
+              Deactivate {tableName}
             </>
           ) : (
             <>
               <CircleCheck className="size-4" />
-              Activate Brand
+              Activate {tableName}
             </>
           )}
         </DropdownMenuItem>
@@ -94,11 +95,11 @@ export function MotoBrandRowActions({
         <DropdownMenuSeparator />
 
         <DropdownMenuItem
-          onClick={() => onDelete(brand)}
+          onClick={() => onDelete(item)}
           className="text-destructive focus:text-destructive"
         >
           <Trash2 className="size-4" />
-          Delete Brand
+          Delete {tableName}
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

@@ -6,42 +6,37 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 
-import { MotoBrandForm } from "./MotoBrandFrom";
-export function EditMotoBrandDialog({
-  brand,
+import { MotoNameForm } from "./MotoNameFrom";
+export function EditMotoNameDialog({
+  item,
   open,
   onOpenChange,
   onSubmit,
   isPending,
-  setSelectedBrand,
+  tableName,
 }) {
-  if (!brand) return null;
-
-  // function handleSubmit(values) {
-  //   onSubmit(brand.id, values);
-  // }
+  if (!item) return null;
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
-          <DialogTitle>Edit brand</DialogTitle>
+          <DialogTitle>Edit {tableName}</DialogTitle>
 
           <DialogDescription>
-            Update the motorcycle brand information.
+            Update the motorcycle {tableName} information.
           </DialogDescription>
         </DialogHeader>
 
-        <MotoBrandForm
+        <MotoNameForm
           defaultValues={{
-            name: brand?.name,
-            isActive: brand?.isActive,
+            name: item?.name,
+            isActive: item?.isActive,
           }}
           submitLabel="Save changes"
           onSubmit={onSubmit}
           onCancel={() => {
             onOpenChange(false);
-            setSelectedBrand(null);
           }}
           isPending={isPending}
         />

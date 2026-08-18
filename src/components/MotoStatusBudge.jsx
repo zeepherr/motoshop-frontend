@@ -1,6 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 
-export function MotoBrandStatusBadge({ isActive }) {
+export function MotoStatusBadge({ isActive }) {
   if (isActive) {
     return (
       <Badge

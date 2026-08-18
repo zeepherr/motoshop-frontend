@@ -8,12 +8,13 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { SearchX, Tags } from "lucide-react";
-import { BrandGroupHeader } from "./MotoBrandGroupHeader";
+import { ItemGroupHeader } from "./moto-brands/MotoItemGroupHeader";
 
-import { MotoBrandTableRow } from "./MotoBrandTableRow";
+import { MotoItemTableRow } from "./MotoItemTableRow";
 
-export function MotoBrandTable({
-  brands,
+export function MotoItemTable({
+  tableName,
+  items,
   onEdit,
   onStatusChange,
   onDelete,
@@ -21,9 +22,9 @@ export function MotoBrandTable({
   onClearFilters,
   status,
 }) {
-  const activeBrands = brands?.filter((brand) => brand.isActive) ?? [];
+  const activeItems = items?.filter((item) => item.isActive) ?? [];
 
-  const inactiveBrands = brands?.filter((brand) => !brand.isActive) ?? [];
+  const inactiveItems = items?.filter((item) => !item.isActive) ?? [];
 
   return (
     <div className="overflow-hidden rounded-xl border bg-background">
@@ -32,7 +33,7 @@ export function MotoBrandTable({
           <TableHeader>
             <TableRow className="bg-muted/30 hover:bg-muted/30">
               <TableHead className="h-11 text-xs font-medium text-muted-foreground">
-                Brand
+                {tableName}
               </TableHead>
 
               <TableHead className="h-11 w-36 text-xs font-medium text-muted-foreground">
@@ -54,21 +55,22 @@ export function MotoBrandTable({
           </TableHeader>
 
           <TableBody>
-            {brands?.length > 0 ? (
+            {items?.length > 0 ? (
               status === "all" ? (
                 <>
-                  {activeBrands.length > 0 && (
+                  {activeItems.length > 0 && (
                     <>
-                      <BrandGroupHeader
-                        label="Active Brands"
-                        count={activeBrands.length}
+                      <ItemGroupHeader
+                        label={`Active ${tableName.toLowerCase()}`}
+                        count={activeItems.length}
                         active
                       />
 
-                      {activeBrands.map((brand) => (
-                        <MotoBrandTableRow
-                          key={brand.id}
-                          brand={brand}
+                      {activeItems.map((item) => (
+                        <MotoItemTableRow
+                          tableName={tableName}
+                          key={item.id}
+                          item={item}
                           onEdit={onEdit}
                           onStatusChange={onStatusChange}
                           onDelete={onDelete}
@@ -77,17 +79,18 @@ export function MotoBrandTable({
                     </>
                   )}
 
-                  {inactiveBrands.length > 0 && (
+                  {inactiveItems.length > 0 && (
                     <>
-                      <BrandGroupHeader
-                        label="Inactive Brands"
-                        count={inactiveBrands.length}
+                      <ItemGroupHeader
+                        label={`Inactive ${tableName.toLowerCase()}`}
+                        count={inactiveItems.length}
                       />
 
-                      {inactiveBrands.map((brand) => (
-                        <MotoBrandTableRow
-                          key={brand.id}
-                          brand={brand}
+                      {inactiveItems.map((item) => (
+                        <MotoItemTableRow
+                          tableName={tableName}
+                          key={item.id}
+                          item={item}
                           onEdit={onEdit}
                           onStatusChange={onStatusChange}
                           onDelete={onDelete}
@@ -97,10 +100,11 @@ export function MotoBrandTable({
                   )}
                 </>
               ) : (
-                brands.map((brand) => (
-                  <MotoBrandTableRow
-                    key={brand.id}
-                    brand={brand}
+                items.map((item) => (
+                  <MotoItemTableRow
+                    tableName={tableName}
+                    key={item.id}
+                    item={item}
                     onEdit={onEdit}
                     onStatusChange={onStatusChange}
                     onDelete={onDelete}
@@ -121,14 +125,14 @@ export function MotoBrandTable({
 
                     <h3 className="font-medium text-foreground">
                       {isFiltered
-                        ? "No matching brands found"
-                        : "No motorcycle brands yet"}
+                        ? `No matching ${tableName.toLowerCase()} found`
+                        : `No motorcycle ${tableName.toLowerCase()} yet`}
                     </h3>
 
                     <p className="mt-1 max-w-sm text-sm text-muted-foreground">
                       {isFiltered
                         ? "Try changing your search or status filter to find what you're looking for."
-                        : "Motorcycle brands you add will appear here."}
+                        : `Motorcycle ${tableName.toLowerCase()} you add will appear here.`}
                     </p>
 
                     {isFiltered && (
@@ -151,4 +155,19 @@ export function MotoBrandTable({
       </div>
     </div>
   );
+}
+
+{
+  /* <Item
+  variant="outline"
+  className="
+    border-border
+    bg-card/90
+    transition-all
+    duration-200
+    hover:-translate-y-0.5
+    hover:border-primary/50
+    hover:shadow-[0_10px_30px_var(--glow-primary)]
+  "
+></Item> */
 }

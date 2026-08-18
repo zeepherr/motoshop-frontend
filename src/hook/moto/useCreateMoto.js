@@ -1,17 +1,17 @@
-import { createMotoBrand } from "@/api/motor-brand/motor-brand.api";
+import { createMotor } from "@/api/moto/moto.api";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
-import { motorBrandKeys } from "./motoBrand.keys";
+import { motoKeys } from "./motoKey";
 
-export const useCreateMotorBrand = () => {
+export const useCreateMoto = () => {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: createMotoBrand,
+    mutationFn: createMotor,
     onSuccess: (data) => {
       toast.success(data.message, { position: "top-center" });
       queryClient.invalidateQueries({
         //impotant  concept to update data after created
-        queryKey: motorBrandKeys.all,
+        queryKey: motoKeys.all,
       });
     },
   });

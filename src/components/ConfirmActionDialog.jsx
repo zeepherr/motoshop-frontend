@@ -30,7 +30,10 @@ export function ConfirmActionDialog({
         </AlertDialogHeader>
 
         <AlertDialogFooter>
-          <AlertDialogCancel disabled={isPending}>
+          <AlertDialogCancel
+            disabled={isPending}
+            className="cursor-pointer disabled:cursor-not-allowed"
+          >
             {cancelLabel}
           </AlertDialogCancel>
 
@@ -39,8 +42,8 @@ export function ConfirmActionDialog({
             disabled={isPending}
             className={
               variant === "destructive"
-                ? "bg-destructive text-primary-foreground hover:bg-destructive/90"
-                : ""
+                ? "bg-destructive text-primary-foreground hover:bg-destructive/90 cursor-pointer disabled:cursor-not-allowed"
+                : "cursor-pointer disabled:cursor-not-allowed"
             }
           >
             {isPending ? "Processing..." : confirmLabel}

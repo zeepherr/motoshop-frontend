@@ -3,18 +3,24 @@
 import { cn } from "@/lib/utils";
 
 import { TableCell, TableRow } from "@/components/ui/table";
-import { MotoBrandStatusBadge } from "./MotoBrandStatusBudge";
+import { MotoStatusBadge } from "./MotoStatusBudge";
 
 import { formatTableDate } from "@/utils/date";
-import { MotoBrandRowActions } from "./MotoBrandRowActions";
+import { MotoItemRowActions } from "./MotoItemRowActions";
 
-export function MotoBrandTableRow({ brand, onEdit, onStatusChange, onDelete }) {
+export function MotoItemTableRow({
+  tableName,
+  item,
+  onEdit,
+  onStatusChange,
+  onDelete,
+}) {
   return (
     <TableRow
       className={cn(
         "group transition-colors",
         "hover:bg-muted/30",
-        !brand.isActive && "bg-muted/15",
+        !item.isActive && "bg-muted/15",
       )}
     >
       <TableCell className="py-4">
@@ -23,44 +29,45 @@ export function MotoBrandTableRow({ brand, onEdit, onStatusChange, onDelete }) {
             className={cn(
               "flex size-9 shrink-0 items-center justify-center rounded-lg border bg-background",
               "text-sm font-semibold uppercase shadow-xs",
-              !brand.isActive && "text-muted-foreground opacity-70",
+              !item.isActive && "text-muted-foreground opacity-70",
             )}
           >
-            {brand.name?.charAt(0)}
+            {item.name?.charAt(0)}
           </div>
 
           <div className="min-w-0">
             <p
               className={cn(
                 "truncate font-medium text-foreground",
-                !brand.isActive && "text-muted-foreground",
+                !item.isActive && "text-muted-foreground",
               )}
             >
-              {brand.name}
+              {item.name}
             </p>
 
             <p className="mt-0.5 text-xs text-muted-foreground">
-              Motorcycle brand
+              Motorcycle {tableName.toLowerCase()}
             </p>
           </div>
         </div>
       </TableCell>
 
       <TableCell>
-        <MotoBrandStatusBadge isActive={brand.isActive} />
+        <MotoStatusBadge isActive={item.isActive} />
       </TableCell>
 
       <TableCell className="text-sm text-muted-foreground">
-        {formatTableDate(brand.updatedAt)}
+        {formatTableDate(item.updatedAt)}
       </TableCell>
 
       <TableCell className="text-sm text-muted-foreground">
-        {formatTableDate(brand.createdAt)}
+        {formatTableDate(item.createdAt)}
       </TableCell>
 
       <TableCell className="text-right">
-        <MotoBrandRowActions
-          brand={brand}
+        <MotoItemRowActions
+          tableName={tableName}
+          item={item}
           onEdit={onEdit}
           onStatusChange={onStatusChange}
           onDelete={onDelete}

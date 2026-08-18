@@ -2,7 +2,7 @@ import NotFoundPage from "@/components/NotFound";
 import { ROLES } from "@/constants/role";
 import { AdminLayout } from "@/layouts/AdminLayout";
 import AuthLayout from "@/layouts/AuthLayout";
-import CategoryPage from "@/pages/admin/CategoryPage";
+import MotorCategoryPage from "@/pages/admin/CategoryPage";
 import DashboardPage from "@/pages/admin/DashboardPage";
 import MotorBrandPage from "@/pages/admin/MotorBrandPage";
 import MotorPages from "@/pages/admin/MotorPages";
@@ -57,7 +57,7 @@ const router = createBrowserRouter([
               },
               {
                 path: "categories",
-                Component: CategoryPage,
+                Component: MotorCategoryPage,
               },
               {
                 path: "products",

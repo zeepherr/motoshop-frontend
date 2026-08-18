@@ -1,5 +1,5 @@
 import { TableCell, TableRow } from "../ui/table";
-export function BrandGroupHeader({ label, count, active }) {
+export function ItemGroupHeader({ label, count, active }) {
   return (
     <TableRow className="border-y bg-muted/20 hover:bg-muted/20">
       <TableCell colSpan={5} className="h-9 py-0">

@@ -20,12 +20,13 @@ const statusFilters = [
   },
 ];
 
-export function MotoBrandToolbar({
+export function MotoItemToolbar({
+  tableName,
   search,
   onSearchChange,
   status,
   onStatusChange,
-  brandCounts,
+  itemCounts,
 }) {
   return (
     <div className="flex flex-col gap-3 rounded-xl border bg-background p-3 sm:flex-row sm:items-center sm:justify-between">
@@ -36,7 +37,7 @@ export function MotoBrandToolbar({
         <Input
           value={search}
           onChange={(event) => onSearchChange(event.target.value)}
-          placeholder="Search brands..."
+          placeholder={`Search ${tableName}...`}
           className="pl-9"
         />
       </div>
@@ -45,7 +46,7 @@ export function MotoBrandToolbar({
       <div
         className="flex w-full items-center rounded-lg bg-muted/60 p-1 sm:w-auto"
         role="group"
-        aria-label="Filter motor brands by status"
+        aria-label="Filter by status"
       >
         {statusFilters.map((filter) => {
           const isSelected = status === filter.value;
@@ -83,7 +84,7 @@ export function MotoBrandToolbar({
                     : "bg-background/70 text-muted-foreground",
                 )}
               >
-                {brandCounts?.[filter.value] ?? 0}
+                {itemCounts?.[filter.value] ?? 0}
               </span>
             </Button>
           );

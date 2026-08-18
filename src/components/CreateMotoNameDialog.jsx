@@ -6,13 +6,14 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 
-import { MotoBrandForm } from "./MotoBrandFrom";
-export function CreateMotoBrandDialog({
+import { MotoNameForm } from "./MotoNameFrom";
+export function CreateMotoNameDialog({
+  placeholder,
   open,
   onOpenChange,
   onSubmit,
   isPending,
-  setSelectedBrand,
+  name,
 }) {
   function handleSubmit(values) {
     onSubmit(values);
@@ -22,19 +23,19 @@ export function CreateMotoBrandDialog({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
-          <DialogTitle>Add motorcycle brand</DialogTitle>
+          <DialogTitle>Add motorcycle {name}</DialogTitle>
 
           <DialogDescription>
-            Add a new motorcycle brand to your shop.
+            Add a new motorcycle {name} to your shop.
           </DialogDescription>
         </DialogHeader>
 
-        <MotoBrandForm
-          submitLabel="Add brand"
+        <MotoNameForm
+          placeholder={placeholder}
+          submitLabel={`Add ${name}`}
           onSubmit={handleSubmit}
           onCancel={() => {
             onOpenChange(false);
-            setSelectedBrand(null);
           }}
           isPending={isPending}
         />

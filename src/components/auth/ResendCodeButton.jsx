@@ -7,6 +7,7 @@ import {
   getPendingRegistration,
   savePendingRegistration,
 } from "@/utils/pending-registration";
+import { ContentLoader } from "../loading/ContentLoader";
 
 function getRemainingSeconds(resendAvailableAt) {
   if (!resendAvailableAt) return 0;
@@ -117,22 +118,25 @@ export function ResendCodeButton({ email, resendAvailableAt, onResent }) {
   }
 
   return (
-    <div className="space-y-2 text-center">
-      <Button
-        type="button"
-        variant="ghost"
-        disabled={countdown > 0 || isSending}
-        onClick={handleResend}
-        className=" cursor-pointer"
-      >
-        {isSending
-          ? "Sending..."
-          : countdown > 0
-            ? `Resend code in ${countdown}s`
-            : "Resend code"}
-      </Button>
+    <>
+      <div className="space-y-2 text-center">
+        <Button
+          type="button"
+          variant="ghost"
+          disabled={countdown > 0 || isSending}
+          onClick={handleResend}
+          className=" cursor-pointer"
+        >
+          {isSending
+            ? "Sending..."
+            : countdown > 0
+              ? `Resend code in ${countdown}s`
+              : "Resend code"}
+        </Button>
 
-      {error && <p className="text-sm text-destructive">{error}</p>}
-    </div>
+        {error && <p className="text-sm text-destructive">{error}</p>}
+      </div>
+      {isSending && <ContentLoader />}
+    </>
   );
 }

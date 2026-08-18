@@ -7,12 +7,14 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { motoBrandSchema } from "@/validations/motoBrand.schema";
 
-export function MotoBrandForm({
+export function MotoNameForm({
+  placeholder,
   defaultValues = { name: "" },
   submitLabel,
   onSubmit,
   onCancel,
   isPending,
+  actions,
 }) {
   const {
     register,
@@ -40,7 +42,7 @@ export function MotoBrandForm({
 
         <Input
           id="brand-name"
-          placeholder="e.g. Honda"
+          placeholder={placeholder || ""}
           autoComplete="off"
           autoFocus
           {...register("name")}
@@ -49,6 +51,7 @@ export function MotoBrandForm({
         {errors.name && (
           <p className="text-sm text-destructive">{errors.name.message}</p>
         )}
+        {actions}
       </div>
 
       <div className="flex justify-end gap-2">

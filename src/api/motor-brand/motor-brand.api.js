@@ -1,7 +1,13 @@
 import { authApi } from "../axios";
 
-export const getMotorBrands = async () => {
+export const getAllMotorBrands = async () => {
   const res = await authApi.get("/motor-brands/all-brands", {
+    globalLoading: false,
+  });
+  return res.data.data;
+};
+export const getMotorBrands = async () => {
+  const res = await authApi.get("/motor-brands/all", {
     globalLoading: false,
   });
   return res.data.data;
