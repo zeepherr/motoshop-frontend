@@ -123,7 +123,7 @@ const MotorBrandPage = () => {
         onSearchChange={setSearch}
         status={status}
         onStatusChange={setStatus}
-        brandCounts={brandCounts}
+        itemCounts={brandCounts}
       />
 
       <MotoItemTable

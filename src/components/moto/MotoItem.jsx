@@ -17,14 +17,14 @@ export function MotoItem({ motor, onEdit, onStatusChange, onDelete }) {
   return (
     <Item
       variant="outline"
-      className="
+      className={` ${motor.isActive ? "" : "bg-muted"}
         group relative flex items-stretch gap-0 overflow-hidden p-0
-        transition-all duration-200
+        transition-all duration-200 ease-linear
         hover:border-primary/50
         hover:shadow-[0_10px_30px_var(--glow-primary)]
-      "
+      `}
     >
-      <ItemHeader className="bg-sidebar-accent p-3 pb-0">
+      <ItemHeader className="p-3 pb-0">
         <div
           className="
             aspect-4/3 w-full overflow-hidden
@@ -39,13 +39,10 @@ export function MotoItem({ motor, onEdit, onStatusChange, onDelete }) {
             />
           ) : (
             <div
-              className="
+              className={` ${motor.isActive ? "bg-linear-to-br from-primary/10 via-muted/20 to-accent/10" : ""}
                 flex h-full w-full items-center justify-center
-                bg-linear-to-br
-                from-primary/10
-                via-muted/20
-                to-accent/10
-              "
+                
+              `}
             >
               <div
                 className="

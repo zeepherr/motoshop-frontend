@@ -27,7 +27,7 @@ export function MotoForm({
   submitLabel = "Save",
   onSubmit,
   onCancel,
-  isPending = false,
+  isPending,
 }) {
   const {
     reset,

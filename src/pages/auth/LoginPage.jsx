@@ -49,7 +49,10 @@ export default function LoginPage() {
   };
   return (
     <>
-      <Card className="w-full max-w-sm">
+      <Card
+        className="w-full max-w-md border-none sm:px-4  px-2 hover:border-primary/50 min-h-fit h-115 flex justify-center
+        hover:shadow-[0_10px_30px_var(--glow-primary)] transition-all duration-300 ease-linear hover:-translate-y-2 focus:scale-125"
+      >
         <CardHeader>
           <div className="mb-3 flex items-center gap-2">
             <div className="flex size-8 items-center justify-center rounded-lg bg-primary text-xs font-semibold text-primary-foreground">

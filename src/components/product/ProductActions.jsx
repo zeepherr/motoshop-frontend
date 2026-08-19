@@ -14,53 +14,52 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+
 import { cn } from "@/lib/utils";
 
-export function MotoActions({ motor, onEdit, onStatusChange, onDelete }) {
+export function ProductActions({ product, onEdit, onStatusChange, onDelete }) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger
         render={
           <Button
             type="button"
-            variant="secondary"
+            variant="ghost"
             size="icon-sm"
             className="
-              size-9 cursor-pointer
-              opacity-0 transition-opacity
+              size-8 cursor-pointer
+              opacity-60 transition-opacity
+              hover:opacity-100
               group-hover:opacity-100
             "
-            aria-label={`Actions for ${motor.model}`}
+            aria-label={`Actions for ${product.name}`}
           />
         }
       >
         <MoreHorizontal className="size-4" />
       </DropdownMenuTrigger>
 
-      <DropdownMenuContent
-        align="end"
-        className="w-48"
-        sideOffset={6}
-        side="top"
-      >
+      <DropdownMenuContent align="end" className="w-48" sideOffset={6}>
+        {/* Edit */}
         <DropdownMenuItem
-          onClick={() => onEdit(motor)}
+          onClick={() => onEdit(product)}
           className="cursor-pointer"
         >
           <Pencil className="size-4" />
-          Edit Motorcycle
+          Edit Product
         </DropdownMenuItem>
 
+        {/* Status */}
         <DropdownMenuItem
-          onClick={() => onStatusChange(motor)}
+          onClick={() => onStatusChange(product)}
           className={cn(
             "cursor-pointer",
-            motor.isActive
+            product.isActive
               ? "text-destructive focus:text-destructive"
               : "text-success focus:text-success",
           )}
         >
-          {motor.isActive ? (
+          {product.isActive ? (
             <>
               <CircleOff className="size-4" />
               Deactivate
@@ -75,12 +74,17 @@ export function MotoActions({ motor, onEdit, onStatusChange, onDelete }) {
 
         <DropdownMenuSeparator />
 
+        {/* Delete */}
         <DropdownMenuItem
-          onClick={() => onDelete(motor)}
-          className="text-destructive focus:text-destructive cursor-pointer"
+          onClick={() => onDelete(product)}
+          className="
+            cursor-pointer
+            text-destructive
+            focus:text-destructive
+          "
         >
           <Trash2 className="size-4" />
-          Delete Motorcycle
+          Delete Product
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

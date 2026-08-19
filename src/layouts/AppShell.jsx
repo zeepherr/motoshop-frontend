@@ -58,7 +58,7 @@ export function AppShell({ navigation, section, workspace, user }) {
             min-h-0
             min-w-0
             flex-1
-            mt-10
+            mt-13
             relative
             overflow-y-auto
             scroll-smooth

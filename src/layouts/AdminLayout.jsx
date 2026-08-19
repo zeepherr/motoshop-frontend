@@ -1,5 +1,3 @@
-import { Plus } from "lucide-react";
-
 import { adminNavigation } from "@/config/navigation/admin.navigation";
 import { AppShell } from "@/layouts/AppShell";
 import useAuthStore from "@/stores/auth.store";
@@ -19,23 +17,6 @@ export function AdminLayout() {
       section="Admin"
       workspace="Shop management"
       user={user}
-      headerActions={
-        <button
-          type="button"
-          className="
-            hidden h-9 items-center gap-2
-            rounded-lg
-            bg-primary
-            px-4
-            text-sm font-medium
-            text-primary-foreground
-            sm:flex
-          "
-        >
-          <Plus className="size-4" />
-          New Sale
-        </button>
-      }
     />
   );
 }

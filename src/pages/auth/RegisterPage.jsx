@@ -108,7 +108,10 @@ export default function RegisterPage() {
   };
   return (
     <>
-      <Card className="w-full max-w-md">
+      <Card
+        className="w-full max-w-md  px-2 hover:border-primary/50 min-h-fit h-115 flex justify-center
+        hover:shadow-[0_10px_30px_var(--glow-primary)] transition-all duration-300 ease-linear hover:-translate-y-2 focus:scale-125"
+      >
         <CardHeader>
           <div className="mb-3 flex items-center gap-2">
             <div className="flex size-8 items-center justify-center rounded-lg bg-primary text-xs font-semibold text-primary-foreground">
@@ -212,7 +215,7 @@ export default function RegisterPage() {
                   {serverError}
                 </div>
               )}
-              <Button type="submit" className="w-full">
+              <Button type="submit" className="w-full cursor-pointer">
                 {isSubmitting ? "Sending OTP..." : "Continue"}
               </Button>
             </fieldset>

@@ -1,5 +1,6 @@
 import { Navigate, useNavigate } from "react-router";
 
+import { BackButton } from "@/components/auth/BackButton";
 import { VerifyEmailForm } from "@/components/auth/VerifyEmailForm";
 import {
   Card,
@@ -43,8 +44,8 @@ export default function VerifyEmailPage() {
   }
 
   return (
-    <>
-      <Card className="w-full max-w-md hover:border-ring">
+    <div className="w-full max-w-md hover:border-ring ">
+      <Card className=" hover:shadow-[0_10px_30px_var(--glow-primary)] transition-all duration-300 ease-linear hover:-translate-y-2 focus:scale-125">
         <CardHeader>
           <div className="mb-3 flex items-center gap-2">
             <div className="flex size-8 items-center justify-center rounded-lg bg-primary text-xs font-semibold text-primary-foreground">
@@ -71,6 +72,9 @@ export default function VerifyEmailPage() {
           />
         </CardContent>
       </Card>
-    </>
+      <div className="w-full mx-auto flex justify-center py-6">
+        <BackButton />
+      </div>
+    </div>
   );
 }

@@ -28,6 +28,7 @@ export function ThemeSwitcher() {
           variant={theme === item.value ? "default" : "ghost"}
           onClick={() => setTheme(item.value)}
           aria-pressed={theme === item.value}
+          className="cursor-pointer"
         >
           {item.label}
         </Button>
