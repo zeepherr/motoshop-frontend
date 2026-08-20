@@ -1,7 +1,3 @@
-import { useState } from "react";
-
-import { Checkbox } from "@/components/ui/checkbox";
-
 import { ArrowDown, ArrowUp, ArrowUpDown } from "lucide-react";
 
 import { ProductRow } from "./ProductRow";
@@ -14,32 +10,6 @@ export function ProductTable({
   onStatusChange,
   onDelete,
 }) {
-  const [selectedProducts, setSelectedProducts] = useState([]);
-
-  const allSelected =
-    products?.length > 0 &&
-    products.every((product) => selectedProducts.includes(product.id));
-
-  const handleSelectAll = (checked) => {
-    if (checked) {
-      setSelectedProducts(products.map((product) => product.id));
-
-      return;
-    }
-
-    setSelectedProducts([]);
-  };
-
-  const handleSelectProduct = (productId, checked) => {
-    setSelectedProducts((current) => {
-      if (checked) {
-        return [...current, productId];
-      }
-
-      return current.filter((id) => id !== productId);
-    });
-  };
-
   return (
     <div className="overflow-hidden rounded-lg border bg-card">
       <div className="overflow-x-auto">
@@ -47,14 +17,6 @@ export function ProductTable({
           {/* Table Header */}
           <thead>
             <tr className="border-b bg-muted/30">
-              <th className="w-12 px-4 py-3">
-                <Checkbox
-                  checked={allSelected}
-                  onCheckedChange={handleSelectAll}
-                  aria-label="Select all products"
-                />
-              </th>
-
               <TableHeading
                 label="Product"
                 sortKey="name"
@@ -68,7 +30,7 @@ export function ProductTable({
                   font-medium text-muted-foreground
                 "
               >
-                Details
+                Category
               </th>
 
               <TableHeading
@@ -112,10 +74,6 @@ export function ProductTable({
                 <ProductRow
                   key={product.id}
                   product={product}
-                  checked={selectedProducts.includes(product.id)}
-                  onCheckedChange={(checked) =>
-                    handleSelectProduct(product.id, checked)
-                  }
                   onEdit={onEdit}
                   onStatusChange={onStatusChange}
                   onDelete={onDelete}

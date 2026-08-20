@@ -33,22 +33,33 @@ export function getApiError(error, fallbackMessage = "Something went wrong.") {
   const body = error.response.data ?? {};
   const serverError = body.error;
 
+  const errorDetails =
+    typeof serverError === "object" && serverError !== null ? serverError : {};
+
+  const code = body.code ?? errorDetails.code ?? `HTTP_${status}`;
+
+  const fieldErrors = body.errors ?? errorDetails.fields ?? null;
+
   const serverMessage =
     body.message ??
     (typeof serverError === "string" ? serverError : serverError?.message);
 
-  const message =
-    status >= 500
-      ? "The server is temporarily unavailable. Please try again."
-      : (serverMessage ?? fallbackMessage);
-  const errorDetails =
-    typeof serverError === "object" && serverError !== null ? serverError : {};
-
+  const firstFieldError = Array.isArray(fieldErrors)
+    ? fieldErrors[0]?.message
+    : null;
+  let message;
+  if (status >= 500) {
+    message = "The server is temporarily unavailable. Please try again.";
+  } else if (code === "VALIDATINO_ERROR") {
+    message = firstFieldError ?? serverError ?? fallbackMessage;
+  } else {
+    message = serverMessage ?? fallbackMessage;
+  }
   return {
     status,
-    code: body.code ?? errorDetails.code ?? `HTTP_${status}`,
+    code,
     message,
-    fieldErrors: body.errors ?? errorDetails.fields ?? null,
+    fieldErrors,
     isCanceled: false,
 
     attemptsRemaining:
@@ -56,9 +67,6 @@ export function getApiError(error, fallbackMessage = "Something went wrong.") {
 
     retryAfterSeconds:
       body.retryAfterSeconds ?? errorDetails.retryAfterSeconds ?? null,
-
-    resendAfterSeconds:
-      body.resendAfterSeconds ?? errorDetails.resendAfterSeconds ?? null,
 
     expiresAt: body.expiresAt ?? errorDetails.expiresAt ?? null,
 

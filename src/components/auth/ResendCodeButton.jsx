@@ -69,9 +69,7 @@ export function ResendCodeButton({ email, resendAvailableAt, onResent }) {
         email,
       });
 
-      const nextResendAt =
-        data.resendAvailableAt ??
-        createResendAvailableAt(data.resendAfterSeconds ?? 60);
+      const nextResendAt = data.resendAvailableAt;
 
       setResendAt(nextResendAt);
 

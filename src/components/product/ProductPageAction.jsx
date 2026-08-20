@@ -30,18 +30,15 @@ export function useProductPageActions() {
 
   function handleCreateProduct(values) {
     console.log(values);
-    // createProduct(
-    //   {
-    //     model: values.model,
-    //     type: values.type,
-    //     motorBrandId: values.motorBrandId,
-    //   },
-    //   {
-    //     onSuccess: () => {
-    //       setCreateOpen(false);
-    //     },
-    //   },
-    // );
+    createProduct(
+      values,
+
+      {
+        onSuccess: () => {
+          setCreateOpen(false);
+        },
+      },
+    );
   }
 
   function handleEditProduct(product) {
@@ -50,19 +47,19 @@ export function useProductPageActions() {
   }
 
   function handleUpdateProduct(values) {
-    console.log(values);
-    // updateMotoData(
-    //   {
-    //     id: editingMoto.id,
-    //     payload: data,
-    //   },
-    //   {
-    //     onSuccess: () => {
-    //       setEditOpen(false);
-    //       setEditingMoto(null);
-    //     },
-    //   },
-    // );
+    if (!editingProduct) return;
+    updateProduct(
+      {
+        id: editingProduct.id,
+        payload: values,
+      },
+      {
+        onSuccess: () => {
+          setEditOpen(false);
+          setEditingProduct(null);
+        },
+      },
+    );
   }
 
   function handleStatusChange(product) {
@@ -72,7 +69,6 @@ export function useProductPageActions() {
 
   function handleConfirmStatusChange() {
     if (!statusProduct) return;
-
     updateProductStatus(
       {
         id: statusProduct.id,

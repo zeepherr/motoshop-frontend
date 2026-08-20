@@ -61,11 +61,6 @@ export default function RegisterPage() {
 
       navigate("/verify-email", {
         replace: true,
-        state: {
-          email: data.email,
-          expiresAt: data.expiresAt,
-          resendAvailableAt: data.resendAvailableAt,
-        },
       });
     } catch (error) {
       const apiError = error.apiError ?? getApiError(error);

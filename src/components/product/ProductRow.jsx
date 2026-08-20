@@ -1,9 +1,8 @@
-import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
-import { MoreHorizontal, Package } from "lucide-react";
+import { Package } from "lucide-react";
+import { ProductActions } from "./ProductActions";
 
-export function ProductRow({ product, checked, onCheckedChange }) {
-  const hasImage = Boolean(product.imgUrl?.trim());
+export function ProductRow({ product, onEdit, onStatusChange, onDelete }) {
+  const hasImage = Boolean(product.imageUrl?.trim());
 
   return (
     <tr
@@ -13,15 +12,6 @@ export function ProductRow({ product, checked, onCheckedChange }) {
         hover:bg-muted/30
       "
     >
-      {/* Select */}
-      <td className="w-12 px-4 py-3">
-        <Checkbox
-          checked={checked}
-          onCheckedChange={onCheckedChange}
-          aria-label={`Select ${product.name}`}
-        />
-      </td>
-
       {/* Product */}
       <td className="px-4 py-3">
         <div className="flex min-w-60 items-center gap-3">
@@ -34,7 +24,7 @@ export function ProductRow({ product, checked, onCheckedChange }) {
           >
             {hasImage ? (
               <img
-                src={product.imgUrl}
+                src={product.imageUrl}
                 alt={product.name}
                 className="size-full object-cover"
               />
@@ -87,15 +77,12 @@ export function ProductRow({ product, checked, onCheckedChange }) {
 
       {/* Actions - temporary */}
       <td className="w-16 px-4 py-3 text-right">
-        <Button
-          type="button"
-          variant="ghost"
-          size="icon-sm"
-          className="cursor-pointer"
-          aria-label={`Actions for ${product.name}`}
-        >
-          <MoreHorizontal className="size-4" />
-        </Button>
+        <ProductActions
+          product={product}
+          onDelete={onDelete}
+          onEdit={onEdit}
+          onStatusChange={onStatusChange}
+        />
       </td>
     </tr>
   );

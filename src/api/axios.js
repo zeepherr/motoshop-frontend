@@ -5,9 +5,6 @@ import useUiStore from "@/stores/ui.store";
 const baseConfig = {
   baseURL: import.meta.env.VITE_BACKEND_API,
   withCredentials: true,
-  headers: {
-    "Content-Type": "application/json",
-  },
 };
 
 const startGlobalLoading = (config) => {
