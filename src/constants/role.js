@@ -11,5 +11,5 @@ const ROLE_HOME = {
 };
 
 export function getRoleHome(role) {
-  return ROLE_HOME[role] ?? "/";
+  return ROLE_HOME[role] ?? "/login";
 }

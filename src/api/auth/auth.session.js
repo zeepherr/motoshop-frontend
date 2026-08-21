@@ -38,69 +38,6 @@ export async function establishSession(payload) {
     throw error;
   }
 }
-// export function restoreSession() {
-//   if (restorePromise) {
-//     return restorePromise;
-//   }
-
-//   restorePromise = (async () => {
-//     try {
-//       const { accessToken, user: refreshUser } = await refreshAccessToken();
-
-//       let user = refreshUser;
-
-//       if (!user) {
-//         const me = await fetchMe();
-
-//         user = extractUser(me);
-//       }
-
-//       useAuthStore.getState().setSession({
-//         accessToken,
-//         user,
-//       });
-//     } catch {
-//       useAuthStore.getState().clearSession();
-//     }
-//   })().finally(() => {
-//     restorePromise = null;
-//   });
-
-//   return restorePromise;
-// }
-
-// export async function refreshAccessToken() {
-//   if (refreshPromise) {
-//     return refreshPromise;
-//   }
-
-//   refreshPromise = refresh()
-//     .then((payload) => {
-//       const { accessToken, user } = extractAuthData(payload);
-
-//       if (!accessToken) {
-//         throw new Error("Refresh response did not return an access token");
-//       }
-
-//       const auth = useAuthStore.getState();
-
-//       auth.setAccessToken(accessToken);
-
-//       if (user) {
-//         auth.setUser(user);
-//       }
-
-//       return {
-//         accessToken,
-//         user,
-//       };
-//     })
-//     .finally(() => {
-//       refreshPromise = null;
-//     });
-
-//   return refreshPromise;
-// }
 
 export function restoreSession() {
   if (restorePromise) {

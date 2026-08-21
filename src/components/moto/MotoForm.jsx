@@ -14,7 +14,10 @@ import {
 } from "@/components/ui/select";
 
 import { MOTOR_TYPES } from "@/constants/moto";
-import { createMotorSchema } from "@/validations/moto.schema";
+import {
+  createMotorSchema,
+  updateMotorSchema,
+} from "@/validations/moto.schema";
 import { useEffect } from "react";
 
 export function MotoForm({
@@ -28,6 +31,7 @@ export function MotoForm({
   onSubmit,
   onCancel,
   isPending,
+  isCreate,
 }) {
   const {
     reset,
@@ -36,7 +40,7 @@ export function MotoForm({
     handleSubmit,
     formState: { errors, dirtyFields },
   } = useForm({
-    resolver: zodResolver(createMotorSchema),
+    resolver: zodResolver(isCreate ? createMotorSchema : updateMotorSchema),
     defaultValues: {
       motorBrandId: defaultValues.motorBrandId,
       model: defaultValues.model ?? "",
@@ -69,7 +73,7 @@ export function MotoForm({
     if (dirtyFields.type) {
       changedData.type = values.type;
     }
-
+    console.log(changedData);
     onSubmit(changedData);
   };
   return (
@@ -117,7 +121,10 @@ export function MotoForm({
             name="type"
             control={control}
             render={({ field }) => (
-              <Select value={field.value} onValueChange={field.onChange}>
+              <Select
+                value={field.value ? String(field.value) : ""}
+                onValueChange={field.onChange}
+              >
                 <SelectTrigger className="w-full">
                   <SelectValue placeholder="Select motor type" />
                 </SelectTrigger>

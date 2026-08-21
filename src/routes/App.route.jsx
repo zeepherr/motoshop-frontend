@@ -2,6 +2,8 @@ import NotFoundPage from "@/components/NotFound";
 import { ROLES } from "@/constants/role";
 import { AdminLayout } from "@/layouts/AdminLayout";
 import AuthLayout from "@/layouts/AuthLayout";
+import { MemberLayout } from "@/layouts/MemberLayout";
+import { StaffLayout } from "@/layouts/StaffLayout";
 import MotorCategoryPage from "@/pages/admin/CategoryPage";
 import DashboardPage from "@/pages/admin/DashboardPage";
 import MotorBrandPage from "@/pages/admin/MotorBrandPage";
@@ -9,6 +11,8 @@ import MotorPages from "@/pages/admin/MotorPages";
 import PosPage from "@/pages/admin/PosPage";
 import ProductPage from "@/pages/admin/ProductPage";
 import ServicePage from "@/pages/admin/ServicePage";
+import UsersPage from "@/pages/admin/UsersPage";
+import Profile from "@/pages/member/Profile";
 import { createBrowserRouter } from "react-router";
 import LoginPage from "../pages/auth/LoginPage";
 import RegisterPage from "../pages/auth/RegisterPage";
@@ -75,33 +79,64 @@ const router = createBrowserRouter([
                 path: "services",
                 Component: ServicePage,
               },
+              {
+                path: "users",
+                Component: UsersPage,
+              },
+              {
+                path: "*",
+                Component: NotFoundPage,
+              },
             ],
           },
         ],
       },
-      // // Staff
-      // {
-      //   element: <RoleRoute allowedRoles={[ROLES.STAFF]} />,
+      // Staff
+      {
+        element: <RoleRoute allowRoles={[ROLES.STAFF]} />,
 
-      //   children: [
-      //     {
-      //       path: "/staff",
-      //       Component: StaffLayout,
-      //     },
-      //   ],
-      // },
+        children: [
+          {
+            path: "/staff",
+            Component: StaffLayout,
+            children: [
+              {
+                index: true,
+                Component: PosPage,
+              },
+              {
+                path: "profile",
+                Component: Profile,
+              },
+              // {
+              //   path: "services",
+              //   Component: ServicePage,
+              // },
+              {
+                path: "*",
+                Component: NotFoundPage,
+              },
+            ],
+          },
+        ],
+      },
 
-      // // Member
-      // {
-      //   element: <RoleRoute allowedRoles={[ROLES.MEMBER]} />,
+      // Member
+      {
+        element: <RoleRoute allowRoles={[ROLES.MEMBER]} />,
 
-      //   children: [
-      //     {
-      //       path: "/member",
-      //       Component: MemberLayout,
-      //     },
-      //   ],
-      // },
+        children: [
+          {
+            path: "/member",
+            Component: MemberLayout,
+            children: [{ index: true, Component: Profile }],
+          },
+          {
+            path: "*",
+            Component: NotFoundPage,
+          },
+        ],
+      },
     ],
   },
   {

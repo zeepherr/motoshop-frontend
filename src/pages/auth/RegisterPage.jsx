@@ -6,12 +6,14 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Link } from "react-router";
+import { Link, Navigate } from "react-router";
 
 import { registerUser } from "@/api/auth/auth.api";
 import { FormField } from "@/components/auth/FormField";
 import { ContentLoader } from "@/components/loading/ContentLoader";
 import { Input } from "@/components/ui/input";
+import { getRoleHome } from "@/constants/role";
+import useAuthStore from "@/stores/auth.store";
 import { getApiError } from "@/utils/api.error";
 import { savePendingRegistration } from "@/utils/pending-registration";
 import { registerSchema } from "@/validations/auth.schema";
@@ -22,6 +24,7 @@ import { useNavigate } from "react-router";
 
 export default function RegisterPage() {
   const navigate = useNavigate();
+  const user = useAuthStore((store) => store.user);
 
   const [serverError, setServerError] = useState("");
 
@@ -101,6 +104,9 @@ export default function RegisterPage() {
       setServerError(apiError.message);
     }
   };
+  if (user) {
+    return <Navigate to={getRoleHome(user.role)} replace />;
+  }
   return (
     <>
       <Card

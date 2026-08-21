@@ -6,7 +6,7 @@ export function MotoHeader({ onAdd, tableName }) {
   return (
     <div
       className="
-        flex flex-col gap-3
+        flex flex-col gap-3 sm:mt-3 mt-1.5
         sm:flex-row sm:items-center sm:justify-between
       "
     >

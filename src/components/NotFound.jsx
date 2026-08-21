@@ -5,7 +5,7 @@ export default function NotFoundPage() {
   const navigate = useNavigate();
 
   return (
-    <main className="flex min-h-screen items-center justify-center bg-background px-4">
+    <main className="flex min-h-full items-center justify-center bg-background px-4">
       <div className="w-full max-w-md text-center">
         <p className="text-sm font-semibold text-primary">404</p>
 

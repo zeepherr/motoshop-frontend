@@ -140,6 +140,11 @@ export function ProductForm({
     }
     onSubmit(changedData);
   };
+  const categoryItems =
+    categories?.map((category) => ({
+      label: category.name,
+      value: category.id,
+    })) ?? [];
 
   return (
     <form
@@ -213,27 +218,43 @@ export function ProductForm({
                 <Controller
                   name="productCategoryId"
                   control={control}
-                  render={({ field }) => (
-                    <Select
-                      value={field.value ? String(field.value) : ""}
-                      onValueChange={(value) => field.onChange(Number(value))}
-                    >
-                      <SelectTrigger className="w-full">
-                        <SelectValue placeholder="Select category" />
-                      </SelectTrigger>
+                  render={({ field }) => {
+                    const selectedCategory = categories?.find(
+                      (category) => Number(category.id) === Number(field.value),
+                    );
 
-                      <SelectContent>
-                        {categories?.map((category) => (
-                          <SelectItem
-                            key={category.id}
-                            value={String(category.id)}
+                    return (
+                      <Select
+                        value={
+                          field.value !== undefined ? String(field.value) : ""
+                        }
+                        onValueChange={(value) => field.onChange(Number(value))}
+                      >
+                        <SelectTrigger className="w-full">
+                          <span
+                            className={
+                              selectedCategory
+                                ? "truncate"
+                                : "truncate text-muted-foreground"
+                            }
                           >
-                            {category.name}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  )}
+                            {selectedCategory?.name ?? "Select category"}
+                          </span>
+                        </SelectTrigger>
+
+                        <SelectContent>
+                          {categories?.map((category) => (
+                            <SelectItem
+                              key={category.id}
+                              value={String(category.id)}
+                            >
+                              {category.name}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    );
+                  }}
                 />
 
                 {errors.productCategoryId && (

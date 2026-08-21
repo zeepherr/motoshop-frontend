@@ -76,17 +76,19 @@ export function ServiceGrid({ services, onEdit, onStatusChange, onDelete }) {
         hasActiveFilters={hasActiveFilters}
         handleClearFilters={handleClearFilters}
       />
-      <AnimatePresence mode="popLayout">
-        {filteredServices.map((service) => (
-          <ServiceItem
-            key={service.id}
-            service={service}
-            onEdit={onEdit}
-            onStatusChange={onStatusChange}
-            onDelete={onDelete}
-          />
-        ))}
-      </AnimatePresence>
+      <div className="grid grid-cols-3 sm:grid-cols-4 gap-2">
+        <AnimatePresence mode="popLayout">
+          {filteredServices.map((service) => (
+            <ServiceItem
+              key={service.id}
+              service={service}
+              onEdit={onEdit}
+              onStatusChange={onStatusChange}
+              onDelete={onDelete}
+            />
+          ))}
+        </AnimatePresence>
+      </div>
     </motion.div>
   );
 }

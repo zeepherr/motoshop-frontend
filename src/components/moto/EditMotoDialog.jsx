@@ -30,6 +30,7 @@ export function EditMotorDialog({
         </DialogHeader>
 
         <MotoForm
+          isCreate={false}
           motorBrands={motorBrands}
           defaultValues={{
             motorBrandId: motor.motorBrandId,

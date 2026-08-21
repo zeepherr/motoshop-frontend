@@ -15,7 +15,7 @@ function ProductPage() {
     error,
     isPending: isProductLoadting,
     isRefetching,
-  } = useProduct();
+  } = useProduct({ includeInactive: true });
   const { data: categories } = useMotoCategories({ includeInactive: false });
   const {
     createOpen,

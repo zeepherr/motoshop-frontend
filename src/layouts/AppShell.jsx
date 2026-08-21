@@ -58,6 +58,7 @@ export function AppShell({ navigation, section, workspace, user }) {
             min-h-0
             min-w-0
             flex-1
+            sm:mt-8
             mt-13
             relative
             overflow-y-auto
@@ -65,9 +66,11 @@ export function AppShell({ navigation, section, workspace, user }) {
             [scrollbar-with:none]
             [-ms-overflow-style:none]
             [&::-webkit-scrollbar]:hidden
-            p-4
-            sm:p-6
-            lg:p-8
+            sm:px-2
+            py-2
+            sm:p-4
+            lg:p-5
+            mx-0
           "
         >
           <Outlet />

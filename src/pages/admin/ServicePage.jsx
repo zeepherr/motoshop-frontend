@@ -13,7 +13,7 @@ function ServicePage() {
     error,
     isPending: isServiceLoading,
     isRefetching,
-  } = useService();
+  } = useService({ includeInactive: true });
   const {
     createOpen,
     setCreateOpen,

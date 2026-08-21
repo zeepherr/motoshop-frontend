@@ -31,6 +31,7 @@ export function CreateMotorDialog({
         </DialogHeader>
 
         <MotoForm
+          isCreate={true}
           motorBrands={motorBrands}
           motorTypes={motorTypes}
           submitLabel="Add Motorcycle"

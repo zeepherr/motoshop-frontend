@@ -16,11 +16,11 @@ export function AppSidebar({
     flex h-dvh min-h-0 flex-col
     overflow-hidden
     border-r bg-background
-    shadow-sm
+    shadow-sm  
 
     transition-[width] duration-300 ease-in-out
 
-    ${collapsed ? "w-18" : "w-65"}
+    ${collapsed ? "sm:w-18  w-14" : "sm:w-65 w-50"}
   `}
     >
       <SidebarBrand

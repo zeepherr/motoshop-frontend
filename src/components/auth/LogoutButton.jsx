@@ -34,7 +34,12 @@ export function LogoutButton() {
   }
 
   return (
-    <Button variant="outline" disabled={isLoggingOut} onClick={handleLogout}>
+    <Button
+      variant="outline"
+      disabled={isLoggingOut}
+      onClick={handleLogout}
+      className="cursor-pointer"
+    >
       {isLoggingOut ? "Logging out..." : "Logout"}
     </Button>
   );

@@ -1,19 +1,15 @@
 import {
   Bike,
+  CircleUserRound,
   LayoutDashboard,
   Package,
   ShoppingCart,
   Tags,
+  Users,
   Wrench,
 } from "lucide-react";
 
 export const adminNavigation = [
-  {
-    label: "Dashboard",
-    to: "/admin",
-    icon: LayoutDashboard,
-    end: true,
-  },
   {
     label: "POS",
     to: "/admin/pos",
@@ -49,16 +45,23 @@ export const adminNavigation = [
     to: "/admin/motors",
     icon: Bike,
   },
+
   {
     label: "Services",
     to: "/admin/services",
     icon: Wrench,
   },
-  // {
-  //   label: "Members / Users",
-  //   to: "/admin/users",
-  //   icon: Users,
-  // },
+  {
+    label: "Members / Users",
+    to: "/admin/users",
+    icon: Users,
+  },
+  {
+    label: "Dashboard",
+    to: "/admin",
+    icon: LayoutDashboard,
+    end: true,
+  },
   // {
   //   label: "Reports",
   //   to: "/admin/reports",
@@ -74,4 +77,26 @@ export const adminNavigation = [
   //   to: "/admin/settings",
   //   icon: Settings,
   // },
+];
+
+export const memberNavigation = [
+  {
+    label: "Profile",
+    to: "/member",
+    icon: CircleUserRound,
+    end: true, //if not all will be selected
+  },
+];
+export const staffNavigation = [
+  {
+    label: "POS",
+    to: "/staff",
+    icon: ShoppingCart,
+    end: true,
+  },
+  {
+    label: "Profile",
+    to: "/staff/profile",
+    icon: CircleUserRound,
+  },
 ];

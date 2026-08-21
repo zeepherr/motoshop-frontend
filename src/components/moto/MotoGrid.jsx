@@ -53,7 +53,7 @@ export function MotoGrid({ motors, onEdit, onStatusChange, onDelete }) {
     setSelectedBrand("all");
     setSelectedStatus("all");
   };
-
+  console.log(motors);
   return (
     <div className="space-y-4">
       <MotoFilters

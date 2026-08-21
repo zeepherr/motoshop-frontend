@@ -6,7 +6,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Link, useNavigate } from "react-router";
+import { Link, Navigate, useNavigate } from "react-router";
 
 import { login } from "@/api/auth/auth.api";
 import { establishSession } from "@/api/auth/auth.session";
@@ -14,6 +14,7 @@ import { FormField } from "@/components/auth/FormField";
 import { ContentLoader } from "@/components/loading/ContentLoader";
 import { Input } from "@/components/ui/input";
 import { getRoleHome } from "@/constants/role";
+import useAuthStore from "@/stores/auth.store";
 import { getApiError } from "@/utils/api.error";
 import { loginSchema } from "@/validations/auth.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -23,6 +24,7 @@ import { toast } from "sonner";
 export default function LoginPage() {
   const [serverError, setServerError] = useState("");
   const navigate = useNavigate();
+  const user = useAuthStore((store) => store.user);
   const {
     register,
     handleSubmit,
@@ -47,6 +49,11 @@ export default function LoginPage() {
       setServerError(apiError.message);
     }
   };
+
+  if (user) {
+    return <Navigate to={getRoleHome(user.role)} replace />;
+  }
+
   return (
     <>
       <Card

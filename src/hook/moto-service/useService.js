@@ -2,7 +2,7 @@ import { getAllServices, getServices } from "@/api/moto-service/moto-service";
 import { useQuery } from "@tanstack/react-query";
 import { motorServiceKeys } from "./motoService.keys";
 
-export const useService = ({ includeInactive = true } = {}) => {
+export const useService = ({ includeInactive = false } = {}) => {
   return useQuery({
     queryKey: includeInactive
       ? motorServiceKeys.includingInactive()

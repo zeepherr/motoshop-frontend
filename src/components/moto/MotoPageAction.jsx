@@ -54,7 +54,7 @@ export function useMotorPageActions() {
       data.model = values.model;
     }
     if (values.type) {
-      data.tpye = values.type;
+      data.type = values.type;
     }
     if (values.motorBrandId) {
       data.motorBrandId = values.motorBrandId;
