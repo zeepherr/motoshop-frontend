@@ -63,7 +63,7 @@ export function AppShell({ navigation, section, workspace, user }) {
             relative
             overflow-y-auto
             scroll-smooth
-            [scrollbar-with:none]
+            scrollbar-none
             [-ms-overflow-style:none]
             [&::-webkit-scrollbar]:hidden
             sm:px-2

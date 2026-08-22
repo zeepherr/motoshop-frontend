@@ -21,7 +21,6 @@ export function PosItemGrid({ mode, searchTerm, selectedCategory }) {
     isPending: isServicesPending,
     isError: isServicesError,
   } = useService({ includeInactive: false });
-
   const filteredItems = useMemo(() => {
     const search = searchTerm.trim().toLowerCase();
 

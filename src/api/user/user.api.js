@@ -6,3 +6,11 @@ export const getAllusers = async () => {
   });
   return res.data.data;
 };
+
+export const changeUserRole = async (userId, role) => {
+  const response = await authApi.patch(`/users/${userId}/role`, {
+    role,
+  });
+
+  return response.data;
+};

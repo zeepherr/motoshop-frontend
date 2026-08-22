@@ -54,7 +54,7 @@ function ProductPage() {
   }
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 mt-2">
       <ProductHeader onAddProduct={handleAddProduct} />
 
       <ProductGrid

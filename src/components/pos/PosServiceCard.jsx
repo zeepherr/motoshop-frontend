@@ -1,8 +1,15 @@
 import { Plus, Wrench } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { usePosStore } from "@/stores/pos/usePosStore";
+import { serviceToCartItem } from "@/utils/cart.util";
 
 export function PosServiceCard({ service }) {
+  const addItem = usePosStore((store) => store.addItem);
+  const handleAddService = (service) => {
+    const cartItem = serviceToCartItem(service);
+    addItem(cartItem);
+  };
   return (
     <article
       className="
@@ -10,7 +17,9 @@ export function PosServiceCard({ service }) {
         rounded-xl border bg-background p-3
         transition-colors
         hover:border-primary/40
+        cursor-pointer
       "
+      onClick={() => handleAddService(service)}
     >
       <div
         className="

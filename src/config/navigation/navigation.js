@@ -52,7 +52,7 @@ export const adminNavigation = [
     icon: Wrench,
   },
   {
-    label: "Members / Users",
+    label: "Users",
     to: "/admin/users",
     icon: Users,
   },

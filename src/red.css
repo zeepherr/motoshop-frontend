@@ -85,50 +85,61 @@
 
 /* =========================================================
    LIGHT THEME
-   Soft futuristic violet / blue
+   Ice Blue + Crimson + Electric Cyan
    ========================================================= */
 
 :root {
-  /* Main canvas */
-  --background: #f7f8ff;
-  --foreground: #17182c;
+  /* =====================================================
+     Canvas
+     ===================================================== */
 
-  /* Main surface */
+  --background: #f6f8fc;
+  --foreground: #0b1026;
+
+  /* =====================================================
+     Main Surface
+     ===================================================== */
+
   --card: #ffffff;
-  --card-foreground: #17182c;
+  --card-foreground: #0b1026;
 
-  /* Dropdown / Dialog / Floating surface */
+  /* =====================================================
+     Elevated Surface
+     Dropdown / Dialog / Popover
+     ===================================================== */
+
   --popover: #ffffff;
-  --popover-foreground: #17182c;
+  --popover-foreground: #0b1026;
 
   /* =====================================================
      Main Brand
-     Electric Indigo / Violet
+     Crimson Red
      ===================================================== */
 
-  --primary: #635bff;
+  --primary: #d71945;
   --primary-foreground: #ffffff;
 
   /* =====================================================
-     Secondary Surface
+     Secondary
+     Cool Blue Surface
      ===================================================== */
 
-  --secondary: #eef0ff;
-  --secondary-foreground: #272942;
+  --secondary: #edf2fb;
+  --secondary-foreground: #111a38;
 
   /* =====================================================
      Muted
      ===================================================== */
 
-  --muted: #f1f3fa;
-  --muted-foreground: #707793;
+  --muted: #eef3f9;
+  --muted-foreground: #66728f;
 
   /* =====================================================
      Accent
-     Neon Purple
+     Electric Cyan
      ===================================================== */
 
-  --accent: #a855f7;
+  --accent: #0891b2;
   --accent-foreground: #ffffff;
 
   /* =====================================================
@@ -138,34 +149,34 @@
   --success: #16a36a;
   --success-foreground: #ffffff;
 
-  --destructive: #df3f50;
+  --destructive: #dc3545;
 
   /* =====================================================
      Structure
      ===================================================== */
 
-  --border: #dde2f3;
-  --input: #dde2f3;
-  --ring: #7c6cff;
+  --border: #d9e1ef;
+  --input: #dce5f2;
+  --ring: #0ea5e9;
 
   /* =====================================================
      Analytics
      ===================================================== */
 
-  /* Main Indigo */
-  --chart-1: #635bff;
+  /* Crimson */
+  --chart-1: #d71945;
 
   /* Electric Blue */
-  --chart-2: #3b82f6;
+  --chart-2: #2563eb;
 
-  /* Neon Purple */
-  --chart-3: #c026d3;
+  /* Cyan */
+  --chart-3: #06b6d4;
 
   /* Success Green */
   --chart-4: #16a36a;
 
-  /* Warning Amber */
-  --chart-5: #e79a13;
+  /* Amber */
+  --chart-5: #e59a16;
 
   --radius: 0.625rem;
 
@@ -173,33 +184,35 @@
      Sidebar
      ===================================================== */
 
-  --sidebar: #fbfbff;
-  --sidebar-foreground: #1e2037;
+  --sidebar: #fbfcff;
+  --sidebar-foreground: #111832;
 
-  --sidebar-primary: #635bff;
+  --sidebar-primary: #d71945;
   --sidebar-primary-foreground: #ffffff;
 
-  --sidebar-accent: #eceeff;
-  --sidebar-accent-foreground: #272942;
+  --sidebar-accent: #e9f3fb;
+  --sidebar-accent-foreground: #0c1838;
 
-  --sidebar-border: #dde2f3;
-  --sidebar-ring: #7c6cff;
+  --sidebar-border: #d8e1ee;
+  --sidebar-ring: #0ea5e9;
 
   /* =====================================================
      Glow System
      ===================================================== */
 
-  --glow-primary: rgb(99 91 255 / 24%);
-  --glow-accent: rgb(168 85 247 / 18%);
-  --glow-cyan: rgb(59 130 246 / 12%);
+  --glow-primary: rgb(215 25 69 / 20%);
+  --glow-accent: rgb(6 182 212 / 18%);
+  --glow-blue: rgb(37 99 235 / 14%);
 
-  --app-glow-1: rgb(99 91 255 / 7%);
-  --app-glow-2: rgb(168 85 247 / 5%);
+  --app-glow-1: rgb(37 99 235 / 7%);
+  --app-glow-2: rgb(6 182 212 / 5%);
+  --app-glow-3: rgb(215 25 69 / 4%);
 }
 
 /* =========================================================
    DARK THEME
-   Deep Navy + Neon Violet
+   Midnight Navy + Crimson + Electric Cyan
+   Inspired by Human + AI visual
    ========================================================= */
 
 .dark {
@@ -207,116 +220,118 @@
      Canvas
      ===================================================== */
 
-  --background: #060817;
-  --foreground: #f6f7ff;
+  --background: #020518;
+  --foreground: #f5f7ff;
 
   /* =====================================================
      Main Surface
      ===================================================== */
 
-  --card: #0c1028;
-  --card-foreground: #f6f7ff;
+  --card: #070c24;
+  --card-foreground: #f5f7ff;
 
   /* =====================================================
      Elevated Surface
      Dropdown / Dialog / Popover
      ===================================================== */
 
-  --popover: #111634;
-  --popover-foreground: #f6f7ff;
+  --popover: #0b1230;
+  --popover-foreground: #f5f7ff;
 
   /* =====================================================
      Main Brand
-     Electric Violet / Indigo
+     Crimson / Human Red
      ===================================================== */
 
-  --primary: #7168ff;
+  --primary: #e11d48;
   --primary-foreground: #ffffff;
 
   /* =====================================================
      Secondary
+     Deep Electric Navy
      ===================================================== */
 
-  --secondary: #151a3a;
-  --secondary-foreground: #e9ebff;
+  --secondary: #101938;
+  --secondary-foreground: #e8eeff;
 
   /* =====================================================
      Muted
      ===================================================== */
 
-  --muted: #14182f;
-  --muted-foreground: #99a2c7;
+  --muted: #0e1734;
+  --muted-foreground: #8f9fc4;
 
   /* =====================================================
      Accent
-     Neon Purple / Magenta
+     AI Electric Cyan
      ===================================================== */
 
-  --accent: #b64cff;
-  --accent-foreground: #ffffff;
+  --accent: #22d3ee;
+  --accent-foreground: #021218;
 
   /* =====================================================
      Semantic Status
      ===================================================== */
 
-  --success: #34d399;
-  --success-foreground: #052016;
+  --success: #2dd4a4;
+  --success-foreground: #031b15;
 
-  --destructive: #ff626e;
+  --destructive: #fb4b63;
 
   /* =====================================================
      Structure
      ===================================================== */
 
-  --border: #28316a;
-  --input: #20285a;
-  --ring: #8b7cff;
+  --border: #1c2b58;
+  --input: #111c40;
+  --ring: #38bdf8;
 
   /* =====================================================
      Analytics
      ===================================================== */
 
-  /* Electric Violet */
-  --chart-1: #7c6cff;
+  /* Human Crimson */
+  --chart-1: #f43f5e;
 
-  /* Neon Cyan */
-  --chart-2: #3dd6ff;
+  /* Electric Blue */
+  --chart-2: #3b82f6;
 
-  /* Magenta */
-  --chart-3: #d946ef;
+  /* AI Cyan */
+  --chart-3: #22d3ee;
 
   /* Success Green */
-  --chart-4: #34d399;
+  --chart-4: #2dd4a4;
 
-  /* Warning Amber */
+  /* Neon Amber */
   --chart-5: #fbbf24;
 
   /* =====================================================
      Sidebar
      ===================================================== */
 
-  --sidebar: #080b20;
-  --sidebar-foreground: #edf0ff;
+  --sidebar: #03071d;
+  --sidebar-foreground: #edf3ff;
 
-  --sidebar-primary: #7168ff;
+  --sidebar-primary: #e11d48;
   --sidebar-primary-foreground: #ffffff;
 
-  --sidebar-accent: #171e4a;
+  --sidebar-accent: #0e1b3f;
   --sidebar-accent-foreground: #ffffff;
 
-  --sidebar-border: #242d65;
-  --sidebar-ring: #8b7cff;
+  --sidebar-border: #172957;
+  --sidebar-ring: #38bdf8;
 
   /* =====================================================
      Glow System
      ===================================================== */
 
-  --glow-primary: rgb(113 104 255 / 38%);
-  --glow-accent: rgb(182 76 255 / 28%);
-  --glow-cyan: rgb(61 214 255 / 18%);
+  --glow-primary: rgb(225 29 72 / 36%);
+  --glow-accent: rgb(34 211 238 / 30%);
+  --glow-blue: rgb(59 130 246 / 24%);
 
-  --app-glow-1: rgb(113 104 255 / 15%);
-  --app-glow-2: rgb(182 76 255 / 10%);
+  --app-glow-1: rgb(37 99 235 / 15%);
+  --app-glow-2: rgb(34 211 238 / 10%);
+  --app-glow-3: rgb(225 29 72 / 7%);
 }
 
 /* =========================================================
@@ -336,40 +351,67 @@
     @apply bg-background text-foreground;
 
     background-image:
-      radial-gradient(circle at 82% 5%, var(--app-glow-1), transparent 30%),
-      radial-gradient(circle at 58% 20%, var(--app-glow-2), transparent 28%);
+      radial-gradient(circle at 84% 8%, var(--app-glow-1), transparent 30%),
+      radial-gradient(circle at 68% 28%, var(--app-glow-2), transparent 26%),
+      radial-gradient(circle at 12% 88%, var(--app-glow-3), transparent 24%);
 
     background-attachment: fixed;
   }
 }
 
 /* =========================================================
-   OPTIONAL NEON UTILITIES
+   OPTIONAL CYBER UTILITIES
    Use selectively
    ========================================================= */
 
 .neon-primary-glow {
   box-shadow:
-    0 0 0 1px rgb(113 104 255 / 18%),
+    0 0 0 1px rgb(225 29 72 / 18%),
     0 0 24px var(--glow-primary);
 }
 
 .neon-accent-glow {
   box-shadow:
-    0 0 0 1px rgb(182 76 255 / 16%),
+    0 0 0 1px rgb(34 211 238 / 16%),
     0 0 28px var(--glow-accent);
+}
+
+.neon-blue-glow {
+  box-shadow:
+    0 0 0 1px rgb(59 130 246 / 16%),
+    0 0 30px var(--glow-blue);
 }
 
 .neon-panel {
   background: linear-gradient(
     135deg,
-    color-mix(in srgb, var(--card) 96%, var(--primary) 4%),
-    var(--card)
+    color-mix(in srgb, var(--card) 96%, var(--accent) 4%),
+    color-mix(in srgb, var(--card) 98%, var(--primary) 2%)
   );
 
   box-shadow:
     inset 0 1px 0 rgb(255 255 255 / 4%),
-    0 12px 36px rgb(0 0 0 / 12%);
+    0 14px 40px rgb(0 0 0 / 20%);
+}
+
+/* Optional red → blue/cyan AI gradient */
+.ai-gradient {
+  background: linear-gradient(
+    100deg,
+    var(--primary) 0%,
+    #2563eb 52%,
+    var(--accent) 100%
+  );
+}
+
+/* Optional gradient text */
+.ai-gradient-text {
+  background: linear-gradient(100deg, #f43f5e 0%, #3b82f6 52%, #22d3ee 100%);
+
+  background-clip: text;
+  -webkit-background-clip: text;
+
+  color: transparent;
 }
 
 /* =========================================================

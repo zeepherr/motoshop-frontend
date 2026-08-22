@@ -1,11 +1,22 @@
 import { ImageOff, Plus } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { usePosStore } from "@/stores/pos/usePosStore";
+import { productToCartItem } from "@/utils/cart.util";
+import { toast } from "sonner";
 
 export function PosProductCard({ product }) {
   const isOutOfStock = product.stockQuantity <= 0;
   const isLowStock = product.stockQuantity > 0 && product.stockQuantity <= 5;
+  const addItem = usePosStore((store) => store.addItem);
+  const handleAddProduct = (product) => {
+    if (product.stockQuantity <= 0) {
+      toast.warning("Insufficient stock!", { position: "top-center" });
+    }
+    const cartItem = productToCartItem(product);
 
+    addItem(cartItem);
+  };
   return (
     <article
       className="
@@ -14,6 +25,7 @@ export function PosProductCard({ product }) {
         transition-colors
         hover:border-primary/40 cursor-pointer
       "
+      onClick={() => handleAddProduct(product)}
     >
       {/* Image */}
       <div className="relative aspect-4/3 overflow-hidden bg-muted/40">

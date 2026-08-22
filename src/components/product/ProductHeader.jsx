@@ -5,7 +5,7 @@ export function ProductHeader({ onAddProduct }) {
   return (
     <div
       className="
-        sticky top-0 z-20
+        sticky top-1 z-20
         bg-background/95 backdrop-blur
       "
     >
